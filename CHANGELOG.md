@@ -1,5 +1,11 @@
 # Changelog
 
+## Unreleased
+
+- Support DSH `0.2.0-rc.2`: migrate stores to `dsh-client-store`, move the theme switch into a `settings.plugins.tab` contribution, and stop calling the removed host settings namespace API.
+- Replace the removed `IconCheckOutline16` primitive with a local SVG component; keep all appearance controls and the theme on/off behavior working.
+- Update package compatibility metadata, source types, and generated bundles. Add `bundle:standalone` for builds without the monorepo-specific tsdown preset.
+
 ## v1.4.1
 
 - npm 发布修复：package.json 内置 dsh.bundle.patch（dsh plugin add 自动注册插件层，无需手动登记 cordis.patch.yml）

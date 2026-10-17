@@ -28,9 +28,13 @@ Aqua is a highly customizable glassmorphism theme for the DeepSeek Harness web U
 
 ## What this fork changes
 
+- **DSH 0.2 compatibility**: use `dsh-client-store`, feature-owned `settings.plugins.tab` panels, and a local check icon after the old runtime, settings namespace API, and icon export were removed.
+- **Version support**: this source targets DSH `0.2.0-rc.2`. Keep the published `1.4.1` release for DSH `0.1.0-rc.7`; its older API is intentionally unsupported by this source.
+- **Standalone build**: after installing development dependencies, `npm run bundle:standalone` rebuilds the host/client bundles without the monorepo-specific tsdown preset.
+
 - **DSH rc.7 compatibility (v1.4.0)**: the Plugins-section card slot became a keyed slot; the master-switch card now registers with `key: 'aqua'` and the node half serves the `aqua` settings namespace so the card still appears in Settings → Plugins.
 - **Unofficial rebrand**: package renamed to `dsh-client-ui-aqua-unofficial` (no `@deepseek-ai` scope) and the repository name carries the `-unofficial` suffix.
-- Everything else (theme, settings, wallpapers) is unchanged from upstream v1.3.0.
+- The theme and wallpapers retain the upstream behavior.
 
 ## Installation
 

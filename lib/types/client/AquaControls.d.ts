@@ -9,7 +9,7 @@ export interface KnobProps {
     onChange: (value: number) => void;
 }
 /** Render one knob row. */
-export declare function Knob({ label, value, min, max, step, unit, onChange }: KnobProps): import("react").JSX.Element;
+export declare function Knob({ label, value, min, max, step, unit, onChange }: KnobProps): import("react/jsx-runtime").JSX.Element;
 /** One segment of a Segmented picker. */
 export interface SegmentedOption<T extends string> {
     id: T;
@@ -23,7 +23,7 @@ export interface SegmentedProps<T extends string> {
     onSelect: (value: T) => void;
 }
 /** Render a two-button segmented picker. */
-export declare function Segmented<T extends string>({ label, value, options, onSelect }: SegmentedProps<T>): import("react").JSX.Element;
+export declare function Segmented<T extends string>({ label, value, options, onSelect }: SegmentedProps<T>): import("react/jsx-runtime").JSX.Element;
 /** Read a file, downscale to ≤1920px, and return a compact JPEG data URL. */
 export declare function fileToDataUrl(file: File): Promise<string>;
 //# sourceMappingURL=AquaControls.d.ts.map

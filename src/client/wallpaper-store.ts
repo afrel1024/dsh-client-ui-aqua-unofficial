@@ -14,6 +14,10 @@ const DB_VERSION = 1
 const HANDLE_KEY = 'videoHandle'
 
 declare global {
+  interface FileSystemHandle {
+    queryPermission(options: { mode: 'read' }): Promise<PermissionState>
+    requestPermission(options: { mode: 'read' }): Promise<PermissionState>
+  }
   interface Window {
     /** Chromium-only File System Access picker (absent elsewhere). */
     showOpenFilePicker?: (options?: {

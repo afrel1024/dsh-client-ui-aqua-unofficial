@@ -46,5 +46,5 @@ export type AquaAppearanceRowComponentProps = PropsRuntime<'settings.general.ite
  * @param props - composed slot props.
  * @returns the General section row.
  */
-export declare function AquaAppearanceRow(props: AquaAppearanceRowComponentProps): import("react").JSX.Element | null;
+export declare function AquaAppearanceRow(props: AquaAppearanceRowComponentProps): import("react/jsx-runtime").JSX.Element | null;
 //# sourceMappingURL=AquaAppearanceRow.d.ts.map

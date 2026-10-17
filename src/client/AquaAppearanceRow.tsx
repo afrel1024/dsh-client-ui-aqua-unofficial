@@ -10,7 +10,7 @@
  * section is off.
  */
 import { useRef } from 'react'
-import { IconCheckOutline16 } from '@deepseek-ai/dsh-client-ui-primitives'
+import { IconCheckOutline16 } from './CheckIcon.tsx'
 import type { PropsLocale, PropsRuntime, PropsStore } from '@deepseek-ai/dsh-client-ui-slots'
 // Type-only: pulls the `settings.general.item` SlotMap merge.
 import type {} from '@deepseek-ai/dsh-client-ui-settings/client'
@@ -105,10 +105,11 @@ export function AquaAppearanceRow(props: AquaAppearanceRowComponentProps) {
    *  file authorization, so later visits re-read the ORIGINAL file with no
    *  storage copy. Other browsers fall back to the plain file input. */
   const pickVideo = (): void => {
-    if (window.showOpenFilePicker !== undefined) {
+    const showOpenFilePicker = window.showOpenFilePicker
+    if (showOpenFilePicker !== undefined) {
       void (async () => {
         try {
-          const [handle] = await window.showOpenFilePicker({
+          const [handle] = await showOpenFilePicker({
             multiple: false,
             types: [{ description: 'Video', accept: { 'video/*': ['.mp4', '.webm', '.ogg', '.mov', '.m4v', '.mkv'] } }],
           })

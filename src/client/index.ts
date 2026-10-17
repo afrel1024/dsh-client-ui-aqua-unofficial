@@ -2,16 +2,17 @@
  * Aqua client plugin body: the toggleable glassmorphism skin. Owns the durable
  * enable flag (localStorage), applies/retracts the theme layer through
  * {@link AquaLayer}, and registers two settings surfaces:
- * - the master on/off card into the Plugins section (`settings.plugin.item`,
+ * - the master on/off card into the Plugins section (`settings.plugins.tab`,
  *   same shape as the other plugin cards);
  * - every glass knob into the General section's Appearance row area
  *   (`settings.general.item`, right under 外观).
  * One click on the master switch returns the stock UI (every layer is an
  * effect, disposed on flip).
  */
-import type { ClientContext } from '@deepseek-ai/dsh-client-runtime/client'
+import type { Context as ClientContext } from '@deepseek-ai/cordis'
+import type {} from '@deepseek-ai/dsh-client-ui-renderer/client'
 import type { BoundActions } from '@deepseek-ai/dsh-client-ui-slots'
-// Type-only: pulls the `settings.plugin.item` SlotMap merge.
+// Type-only: pulls the `settings.plugins.tab` SlotMap merge.
 import type {} from '@deepseek-ai/dsh-client-ui-settings-plugins/client'
 // Type-only: pulls the `settings.general.item` SlotMap merge.
 import type {} from '@deepseek-ai/dsh-client-ui-settings/client'
@@ -170,13 +171,12 @@ export function apply(ctx: ClientContext): void {
     }
   }
 
-  // Master switch card in the Plugins configurable tab. rc.7 turned
-  // 'settings.plugin.item' into a keyed slot dispatched by the settings
-  // namespace a card edits, so the key must equal the 'aqua' settings
-  // namespace the node half registers (see src/index.ts).
-  ctx.slots.inject('settings.plugin.item', () => ctx.slots.register({
-    name: 'settings.plugin.item',
-    key: 'aqua',
+  // DSH 0.2 gives each feature a tab; settings.plugin.item was removed.
+  ctx.slots.inject('settings.plugins.tab', () => ctx.slots.register({
+    name: 'settings.plugins.tab',
+    id: 'aqua',
+    order: 20,
+    label: () => ctx.locale.bind(NS)('aqua.title'),
     store: pluginStore,
     locale: NS,
     inject: pluginInjected,

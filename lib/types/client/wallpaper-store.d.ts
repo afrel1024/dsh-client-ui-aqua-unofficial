@@ -5,6 +5,14 @@
  * hands it to the <video> element — no quota trouble, survives restarts.
  */
 declare global {
+    interface FileSystemHandle {
+        queryPermission(options: {
+            mode: 'read';
+        }): Promise<PermissionState>;
+        requestPermission(options: {
+            mode: 'read';
+        }): Promise<PermissionState>;
+    }
     interface Window {
         /** Chromium-only File System Access picker (absent elsewhere). */
         showOpenFilePicker?: (options?: {

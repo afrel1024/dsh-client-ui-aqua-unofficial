@@ -28,6 +28,10 @@ Aqua 是一层高自由度的玻璃质感主题，套在 DeepSeek Harness 网页
 
 ## 本分支的改动
 
+- **DSH 0.2 兼容**：状态仓库迁移到 `dsh-client-store`，插件设置迁移到 `settings.plugins.tab`，移除已删除的宿主设置命名空间接口，并内置勾选图标。
+- **版本范围**：当前源码适配 DSH `0.2.0-rc.2`。使用 DSH `0.1.0-rc.7` 时，请保留已发布的 `1.4.1` 版本。
+- **独立打包**：安装开发依赖后执行 `npm run bundle:standalone`，无需依赖主仓库特定路径的 tsdown 预设。
+
 - **DSH rc.7 兼容（v1.4.0）**：插件设置页的卡片槽改成了 keyed 槽；主开关卡片改用 `key: 'aqua'` 注册，并由节点侧提供 `aqua` 设置命名空间，使卡片在「设置 → 插件」里照常显示。
 - **非官方重命名**：包名改为 `dsh-client-ui-aqua-unofficial`（不再占用 `@deepseek-ai` 官方 scope），仓库名带 `-unofficial` 后缀。
 - 其余（主题、设置、壁纸等）与上游 v1.3.0 一致。
